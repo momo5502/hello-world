@@ -30,8 +30,8 @@ end
 
 dependencies.load()
 
-workspace "anon"
-startproject "anon"
+workspace "hello-world"
+startproject "hello-world"
 location "./build"
 objdir "%{wks.location}/obj"
 targetdir "%{wks.location}/bin/%{cfg.platform}/%{cfg.buildcfg}"
@@ -101,7 +101,7 @@ defines {"DEBUG", "_DEBUG"}
 
 configuration {}
 
-project "anon"
+project "hello-world"
 kind "ConsoleApp"
 language "C"
 files {"./src/**.c"}
