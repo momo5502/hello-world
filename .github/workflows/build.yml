@@ -59,15 +59,15 @@ jobs:
         uses: ammaraskar/msvc-problem-matcher@master
 
       - name: Build ${{matrix.configuration}} ${{matrix.arch}} binaries
-        run: msbuild /m /v:minimal /p:Configuration=${{matrix.configuration}} /p:Platform=${{matrix.platform}} build/anon.sln
+        run: msbuild /m /v:minimal /p:Configuration=${{matrix.configuration}} /p:Platform=${{matrix.platform}} build/hello-world.sln
 
       - name: Upload ${{matrix.configuration}} ${{matrix.arch}} binaries
         uses: actions/upload-artifact@v2
         with:
           name: Windows ${{matrix.configuration}} ${{matrix.arch}} binaries
           path: |
-            build/bin/${{matrix.arch}}/${{matrix.configuration}}/anon.exe
-            build/bin/${{matrix.arch}}/${{matrix.configuration}}/anon.pdb
+            build/bin/${{matrix.arch}}/${{matrix.configuration}}/hello-world.exe
+            build/bin/${{matrix.arch}}/${{matrix.configuration}}/hello-world.pdb
 
   build-lin:
     name: Build Linux
@@ -132,7 +132,7 @@ jobs:
         with:
           name: Linux ${{matrix.configuration}} ${{matrix.arch}} binaries
           path: |
-            build/bin/${{matrix.arch}}/${{matrix.configuration}}/anon
+            build/bin/${{matrix.arch}}/${{matrix.configuration}}/hello-world
 
   build-mac:
     name: Build macOS
@@ -188,4 +188,4 @@ jobs:
         with:
           name: macOS ${{matrix.configuration}} ${{matrix.arch}} binaries
           path: |
-            build/bin/${{matrix.platform}}/${{matrix.configuration}}/anon
+            build/bin/${{matrix.platform}}/${{matrix.configuration}}/hello-world
